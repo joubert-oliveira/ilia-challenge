@@ -58,3 +58,11 @@ curl -s "${STD_APP_URL}/orders/${ID}" | jq .
 echo "=== Deleting product id: the_odyssey ==="
 curl -s -XDELETE "${STD_APP_URL}/products/the_odyssey"
 echo
+
+# Test: List Orders
+echo "=== Listing Orders ==="
+ORDER_LIST=$(
+    curl -s -XPOST "${STD_APP_URL}/orders/list_orders" \
+    -H 'accept: application/json' 
+)
+echo ${ORDER_LIST}
